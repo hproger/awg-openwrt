@@ -14,8 +14,8 @@ jobs:
         build_env:
           - tag: "19.07.3"
             pkgarch: mipsel_24kc
-            target: "MediaTek Ralink MIPS"
-            subtarget: "MT7620"
+            target: "ramips"
+            subtarget: "mt7620"
             vermagic: "18384755d38fc43c447d83d4a3e07054"
 
     steps:
