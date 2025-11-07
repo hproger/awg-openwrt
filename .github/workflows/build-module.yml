@@ -3,7 +3,7 @@ name: Create Release on Tag
 on:
   push:
     tags:
-      - "v24.10.3"
+      - "v19.07.3"
 
 jobs:
   build:
@@ -12,10 +12,10 @@ jobs:
     strategy:
       matrix:
         build_env:
-          - tag: "24.10.3"
+          - tag: "19.07.3"
             pkgarch: mipsel_24kc
-            target: "ramips"
-            subtarget: "mt7620"
+            target: ramips
+            subtarget: mt7620
             vermagic: "18384755d38fc43c447d83d4a3e07054"
 
     steps:
