@@ -3,7 +3,7 @@ name: Create Release on Tag
 on:
   push:
     tags:
-      - "v19.07.3"
+      - "v1.0.0"
 
 jobs:
   build:
@@ -58,18 +58,18 @@ jobs:
           make defconfig
 
           echo "    > make tools/install"
-          make tools/install -i -j `nproc`
+          make FORCE=1 tools/install -i -j `nproc`
 
           cat ./build_dir/target-*/linux-*/linux-*/.vermagic || true
 
           echo "    > make toolchain/install"
-          make toolchain/install  -i -j `nproc`
+          make FORCE=1 toolchain/install  -i -j `nproc`
 
           cat ./build_dir/target-*/linux-*/linux-*/.vermagic || true
 
           # compile kernel module
           echo "    > make target/linux/compile"
-          make target/linux/compile  -i -j `nproc` V=s
+          make FORCE=1 target/linux/compile  -i -j `nproc` V=s
 
           VERMAGIC=`cat ./build_dir/target-*/linux-*/linux-*/.vermagic`
           VERMAGIC_EXPECTED=${{ matrix.build_env.vermagic }}
